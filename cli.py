@@ -6,6 +6,13 @@ class Cli:
         self.todo = ToDoList()
         
     def menu_prompt (self):
+
+        """This function prints the list of options for the user.
+
+        Returns:
+            string: By using the input function, allows the user to enter the desired number.
+        """
+
         print ("Pick from the options below:")
         print ("1. Show My To Do List")
         print ("2. Create New Item")
@@ -19,6 +26,8 @@ class Cli:
     
     def run_cli(self):
         
+        """This function runs the CLI by calling the proper function that's defined in the application.
+        """
 
         user_input = self.menu_prompt()
 
@@ -37,18 +46,31 @@ class Cli:
             user_input = self.menu_prompt()
 
     def add_menu(self):
+
+        """This function is a submenu that allows the user to input the task and priority.
+            It calls previously defined the add_task function.
+        """
+
         priority = input("Task priority: ")
         task_description = input("Task description: ")
 
         self.todo.add_task(int(priority), task_description)
 
     def del_menu(self):
+
+        """This function is a submenu that first represent the existing todo list,
+            then asks the user to input the UID for the task they want to delete.
+        """
+
         self.todo.show_todo()
 
         uid = input("Choose the UID of the task you wish to delete: ")
         self.todo.del_task(int(uid))
 
     def show_missing (self):
+
+        """This function represent the list of missing priorities if one exists.
+        """
         
         missing_priorities = self.todo.find_missing_priorities()
         if len(missing_priorities) > 0:
