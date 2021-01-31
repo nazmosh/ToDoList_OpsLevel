@@ -3,10 +3,12 @@ This application helps user to create a priority_based task list. It allocates a
 
 ### Run ToDoList:
 - Install the requirements using command below:
+
 `{
   pip3 install -r requirements
    }`
 - Run the application:
+
 `{
    python3 main.py
    }`
